@@ -42,9 +42,14 @@
             this.一般ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.困难ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.地狱ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -121,7 +126,7 @@
             this.难度ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(649, 32);
+            this.menuStrip1.Size = new System.Drawing.Size(866, 32);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,42 +139,83 @@
             this.地狱ToolStripMenuItem});
             this.难度ToolStripMenuItem.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.难度ToolStripMenuItem.Name = "难度ToolStripMenuItem";
-            this.难度ToolStripMenuItem.Size = new System.Drawing.Size(74, 28);
+            this.难度ToolStripMenuItem.Size = new System.Drawing.Size(74, 32);
             this.难度ToolStripMenuItem.Text = "难度";
             // 
             // 简单ToolStripMenuItem
             // 
             this.简单ToolStripMenuItem.Name = "简单ToolStripMenuItem";
-            this.简单ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.简单ToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
             this.简单ToolStripMenuItem.Text = "简单";
             this.简单ToolStripMenuItem.Click += new System.EventHandler(this.简单ToolStripMenuItem_Click);
             // 
             // 一般ToolStripMenuItem
             // 
             this.一般ToolStripMenuItem.Name = "一般ToolStripMenuItem";
-            this.一般ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.一般ToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
             this.一般ToolStripMenuItem.Text = "一般";
             this.一般ToolStripMenuItem.Click += new System.EventHandler(this.一般ToolStripMenuItem_Click);
             // 
             // 困难ToolStripMenuItem
             // 
             this.困难ToolStripMenuItem.Name = "困难ToolStripMenuItem";
-            this.困难ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.困难ToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
             this.困难ToolStripMenuItem.Text = "困难";
             this.困难ToolStripMenuItem.Click += new System.EventHandler(this.困难ToolStripMenuItem_Click);
             // 
             // 地狱ToolStripMenuItem
             // 
             this.地狱ToolStripMenuItem.Name = "地狱ToolStripMenuItem";
-            this.地狱ToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.地狱ToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
             this.地狱ToolStripMenuItem.Text = "地狱";
             this.地狱ToolStripMenuItem.Click += new System.EventHandler(this.地狱ToolStripMenuItem_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(19, 54);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(142, 589);
+            this.listBox1.TabIndex = 7;
+            this.listBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.listBox1_DrawItem);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 18);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "姓名";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(100, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 18);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "分数";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(671, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(177, 649);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "排行榜";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 699);
+            this.ClientSize = new System.Drawing.Size(866, 704);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -185,6 +231,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,6 +252,10 @@
         private System.Windows.Forms.ToolStripMenuItem 一般ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 困难ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 地狱ToolStripMenuItem;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
