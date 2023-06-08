@@ -102,6 +102,24 @@ namespace Tetris
             {
                 hit = true;//当前块触游戏面板底
             }
+            else if (currentBlock.Width == 1 && currentBlock.Height == 1)  //穿透小块
+            {
+                int fx, fy;
+                fx = currentBlock.Left;
+                fy = currentBlock.Top;
+                if (pile[fx, fy] == 1)
+                {
+                    hit = true;
+                    for (int j = fy; j < PlayingFieldHeight; j++)
+                    {
+                        if (pile[fx, j] == 0)
+                        {
+                            hit = false;
+                            break;
+                        }
+                    }
+                }
+            }
             else//检查是否接触到下一行其他已落方块
             {
                 for (int i = 0; i < currentBlock.Width; i++)

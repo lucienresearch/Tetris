@@ -41,7 +41,7 @@ namespace Tetris
         public Block()
         {
             Random randomGenerator = new Random();
-            int randomBlock = randomGenerator.Next(1, 8);//产生1—7的数
+            int randomBlock = randomGenerator.Next(1, 9);//产生1—7的数
             this.ID = randomBlock;
             switch (this.ID)
             {
@@ -121,6 +121,14 @@ namespace Tetris
                     shape[0, 1] = 1;
                     shape[1, 1] = 1;
                     shape[2, 1] = 1;
+                    break;
+                case 8: //小方块
+                    this.Width = 1;
+                    this.Height = 1;
+                    this.Top = 0;
+                    this.Left = 4;
+                    shape = new int[this.Width, this.Height];
+                    shape[0, 0] = 1;
                     break;
             }
         }
