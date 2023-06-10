@@ -61,6 +61,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +88,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\.editorconfig" />
     <None Include="Resources\black.png" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +96,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backmusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.png" />
+    <None Include="Resources\blue.png" />
+    <None Include="Resources\darkblue.png" />
+    <None Include="Resources\green.png" />
+    <None Include="Resources\orange.png" />
+    <None Include="Resources\pink.png" />
+    <None Include="Resources\purple.png" />
+    <Content Include="Resources\red.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -139,7 +139,7 @@
             this.地狱ToolStripMenuItem});
             this.难度ToolStripMenuItem.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.难度ToolStripMenuItem.Name = "难度ToolStripMenuItem";
-            this.难度ToolStripMenuItem.Size = new System.Drawing.Size(74, 32);
+            this.难度ToolStripMenuItem.Size = new System.Drawing.Size(74, 28);
             this.难度ToolStripMenuItem.Text = "难度";
             // 
             // 简单ToolStripMenuItem

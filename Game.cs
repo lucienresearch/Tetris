@@ -247,6 +247,8 @@ namespace Tetris
                             int fx, fy;
                             fx = currentBlock.Left + i;
                             fy = (currentBlock.Top + 1) + j;
+                            fx = Math.Min(fx, PlayingFieldWidth - 2);
+                            fy = Math.Min(fy, PlayingFieldHeight - 1);
                             if ((currentBlock.shape[i, j] == 1) && (pile[(fx - 1), fy] == 1))
                             {
                                 canMove = false;//保证左右移动时和pile中存储的固定方块不重叠
@@ -270,6 +272,8 @@ namespace Tetris
                             int fx, fy;
                             fx = currentBlock.Left + i;
                             fy = (currentBlock.Top + 1) + j;
+                            fx = Math.Min(fx, PlayingFieldWidth - 2);
+                            fy = Math.Min(fy, PlayingFieldHeight - 1);
                             if ((currentBlock.shape[i, j] == 1) && (pile[(fx + 1), fy] == 1))
                             {
                                 canMove = false;

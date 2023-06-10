@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tetris
@@ -13,15 +16,24 @@ namespace Tetris
     {
        
         List<RankItem> rankList = new List<RankItem>();
-
+        private SoundPlayer backMusicPlayer;
+        private SoundPlayer downMusicPlayer;
+        private string projectPath;
+        private bool isPlayDown = false;
+        private bool isPlayBackMusic = true;
         public Form1()
         {
             InitializeComponent();
-            //Task.Run(() =>
-            //{
-            //    SoundPlayer sp = new SoundPlayer(Assembly.GetExecutingAssembly().GetManifestResourceStream("Tetris.Properties.Resources.backmusic.wav"));
-            //    sp.PlayLooping();
-            //});
+            projectPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            Task.Run(() =>
+            {
+                // 播放音频文件
+                backMusicPlayer = new SoundPlayer(projectPath + "\\Resources\\backmusic.wav");
+                downMusicPlayer = new SoundPlayer(projectPath + "\\Resources\\Drop.wav");
+                backMusicPlayer.PlayLooping();
+                //downMusicPlayer.PlayLooping();
+            });
+
             timer1.Interval = 500;
 
             LoadRankList();
@@ -36,6 +48,7 @@ namespace Tetris
             listBox1.ItemHeight = 30;
 
         }
+
         Game game = null;
 
         private void button1_Click(object sender, EventArgs e)//开始游戏，启动定时器
@@ -84,6 +97,11 @@ namespace Tetris
             {
                 pictureBox1.Invalidate();//重画游戏面板区域
                 pictureBox2.Invalidate();//重画下一个方块
+            }
+            else
+            {
+                downMusicPlayer.Stop();
+                isPlayDown = false;
             }
             textBox1.Text = game.score.ToString();
             if (game.over == true)
@@ -178,20 +196,38 @@ namespace Tetris
             }
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys e)
         //重写ProcessCmdKey方法
+        protected override bool ProcessCmdKey(ref Message msg, Keys e)
         {
+            if (e == Keys.P)
+            {
+                isPlayBackMusic = !isPlayBackMusic;
+                if (isPlayBackMusic)
+                {
+                    backMusicPlayer.PlayLooping();
+                }
+                else
+                {
+                    backMusicPlayer.Stop();
+                }
+            }
+
             if (button2.Text == "继续游戏") return true;//暂停时不响应键盘
             if (e == Keys.Up || e == Keys.Down || e == Keys.Space ||
                      e == Keys.Left || e == Keys.Right)
             {
                 MyKeyPress(this, new KeyPressEventArgs((char)e)); //然后在MyKeyPress方法中处理   
             }
+            
             return true;
         }
 
         private void MyKeyPress(object sender, KeyPressEventArgs e)
         {
+            if (game == null)
+            {
+                return;
+            }
             switch (e.KeyChar)
             {
                 case (char)Keys.Up:
@@ -199,7 +235,19 @@ namespace Tetris
                     break;
                 case (char)Keys.Down:
                     if (!game.DownCurrentBlock())
+                    {
                         pictureBox1.Invalidate();//重画游戏面板区域
+                        if(!isPlayDown)
+                        {
+                            downMusicPlayer.PlayLooping();
+                            isPlayDown = true;
+                        }
+                    }
+                    else
+                    {
+                        downMusicPlayer.Stop();
+                        isPlayDown = false;
+                    }
                     break;
                 case (char)Keys.Right:
                     game.MoveCurrentBlockSide(false);

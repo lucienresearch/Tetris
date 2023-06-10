@@ -134,9 +134,35 @@ namespace Tetris
         }
         public void Draw(Graphics g)//随机生成方块类型的编号(this.ID),该构造函数中Switch/Case语句段根据类型编号this.ID生成相应方块的形状
         {
-            //Image brickImage = Image.FromFile("Resources/black.png");
             ResourceManager resourceManage = new ResourceManager("Tetris.Properties.Resources", Assembly.GetExecutingAssembly());
-            Image brickImage = (Image)resourceManage.GetObject("black");
+            Image brickImage = null;
+            switch (this.ID)
+            {
+                case 1:   //正方形
+                    brickImage = (Image)resourceManage.GetObject("red");
+                    break;
+                case 2:　 //横形
+                    brickImage = (Image)resourceManage.GetObject("blue");
+                    break;
+                case 3:　 //山形
+                    brickImage = (Image)resourceManage.GetObject("yellow");
+                    break;
+                case 4:　 //之形
+                    brickImage = (Image)resourceManage.GetObject("pink");
+                    break;
+                case 5:　 //之形
+                    brickImage = (Image)resourceManage.GetObject("orange");
+                    break;
+                case 6:　 //L形
+                    brickImage = (Image)resourceManage.GetObject("darkblue");
+                    break;
+                case 7:　 //L形
+                    brickImage = (Image)resourceManage.GetObject("purple");
+                    break;
+                case 8: //小方块
+                    brickImage = (Image)resourceManage.GetObject("green");
+                    break;
+            }
 
             for (int i = 0; i < this.Width; i++)
             {
